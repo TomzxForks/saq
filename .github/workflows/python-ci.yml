@@ -56,4 +56,4 @@ jobs:
       run: |
         make style
         # abort with a full stack dump of all threads if the suite hangs
-        PYTHONFAULTHANDLER=1 timeout --signal=ABRT 600 python -m coverage run -m unittest -vv
+        PYTHONFAULTHANDLER=1 timeout --signal=ABRT 600 python -m pytest -n auto

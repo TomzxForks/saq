@@ -23,9 +23,7 @@ deps_docs:
 	pip install -q -r docs/requirements.txt
 
 test:
-	@python -m coverage erase
-	python -m coverage run -m unittest -vv
-	@python -m coverage report
+	python -m pytest -n auto
 
 style:
 	pre-commit run --all-files

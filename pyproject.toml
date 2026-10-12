@@ -56,19 +56,33 @@ dev = [
     "aiohttp",
     "aiohttp_basicauth",
     "aiosqlite>=0.20",
-    "coverage",
+    "httpx",
     "mypy",
     "pandas",
-    "psycopg[pool]>=3.2.0",
     "pre-commit",
+    "psycopg[pool]>=3.2.0",
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
     "redis>=4.2,<8.0",
     "ruff",
+    "starlette",
     "time-machine",
     "types-croniter",
     "types-redis",
     "types-setuptools",
-    "starlette",
-    "httpx",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--cov=saq",
+    "--cov-report=term-missing",
 ]
 
 [tool.hatch.version]
