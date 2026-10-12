@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "saq"
+dynamic = ["version"]
+description = "Distributed Python job queue with asyncio and redis, postgres, or sqlite"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Toby Mao", email = "toby.mao@gmail.com" }]
+keywords = ["asyncio", "job", "queue", "worker", "redis", "postgres", "sqlite"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: OS Independent",
+    "Operating System :: Unix",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Distributed Computing",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = ["croniter>=0.3.18"]
+
+[project.urls]
+Homepage = "https://github.com/tobymao/saq"
+Documentation = "https://saq-py.readthedocs.io/"
+
+[project.scripts]
+saq = "saq.__main__:main"
+
+[project.optional-dependencies]
+hiredis = ["redis[hiredis]>=4.2.0"]
+http = ["aiohttp"]
+postgres = ["psycopg[pool]>=3.2.0"]
+redis = ["redis>=4.2,<8.0"]
+sqlite = ["aiosqlite>=0.20"]
+web = ["aiohttp", "aiohttp_basicauth"]
+dev = [
+    "aiohttp",
+    "aiohttp_basicauth",
+    "aiosqlite>=0.20",
+    "coverage",
+    "mypy",
+    "pandas",
+    "psycopg[pool]>=3.2.0",
+    "pre-commit",
+    "redis>=4.2,<8.0",
+    "ruff",
+    "time-machine",
+    "types-croniter",
+    "types-redis",
+    "types-setuptools",
+    "starlette",
+    "httpx",
+]
+
+[tool.hatch.version]
+path = "saq/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["saq"]
