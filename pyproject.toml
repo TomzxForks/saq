@@ -85,6 +85,45 @@ addopts = [
     "--cov-report=term-missing",
 ]
 
+[tool.coverage.run]
+relative_files = true
+branch = true
+source = ["saq"]
+
+[tool.coverage.report]
+show_missing = true
+skip_empty = true
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_subclassing_any = true
+disallow_untyped_calls = true
+disallow_untyped_decorators = true
+disallow_untyped_defs = true
+extra_checks = true
+no_implicit_optional = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+warn_no_return = true
+warn_unreachable = true
+warn_unused_ignores = true
+warn_unused_configs = true
+strict_equality = true
+
+pretty = true
+show_error_codes = true
+show_error_context = true
+
+# Only these checks are failing
+# warn_return_any = true
+# disallow_any_generics = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+strict_equality = false
+disable_error_code = ["typeddict-unknown-key"]
+
 [tool.hatch.version]
 path = "saq/__init__.py"
 
