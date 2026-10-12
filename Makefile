@@ -1,5 +1,5 @@
 PATHS = saq/ tests/
-INSTALL = -e .[hiredis,web,dev,redis,postgres]
+INSTALL = -e .[hiredis,web,dev,redis,postgres,sqlite]
 
 help:
 	@echo  "tobymao/saq dev makefile"

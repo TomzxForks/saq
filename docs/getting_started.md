@@ -9,6 +9,24 @@ pip install saq
 ```
 :::
 
+:::{tab-item} With redis
+```nasm
+pip install saq[redis]
+```
+:::
+
+:::{tab-item} With postgres
+```nasm
+pip install saq[postgres]
+```
+:::
+
+:::{tab-item} With sqlite
+```nasm
+pip install saq[sqlite]
+```
+:::
+
 :::{tab-item} With Web UI & hiredis
 ```nasm
 pip install saq[web,hiredis]

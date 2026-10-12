@@ -9,7 +9,7 @@ with open("README.md", encoding="utf8") as f:
 setup(
     name="saq",
     version=version,
-    description="Distributed Python job queue with asyncio and redis",
+    description="Distributed Python job queue with asyncio and redis, postgres, or sqlite",
     long_description=readme,
     long_description_content_type="text/markdown",
     url="https://github.com/tobymao/saq",
@@ -34,10 +34,12 @@ setup(
         "http": ["aiohttp"],
         "postgres": ["psycopg[pool]>=3.2.0"],
         "redis": ["redis>=4.2,<8.0"],
+        "sqlite": ["aiosqlite>=0.20"],
         "web": ["aiohttp", "aiohttp_basicauth"],
         "dev": [
             "aiohttp",
             "aiohttp_basicauth",
+            "aiosqlite>=0.20",
             "coverage",
             "mypy",
             "pandas",

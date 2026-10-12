@@ -192,7 +192,7 @@ class Queue(ABC):
 
     @staticmethod
     def from_url(url: str, **kwargs: t.Any) -> Queue:
-        """Create a queue with either a redis, postgres or http url."""
+        """Create a queue with either a redis, postgres, sqlite or http url."""
         parsed_url = urlparse(url)
         scheme = parsed_url.scheme.lower()
         if scheme.startswith("redis"):
@@ -203,6 +203,10 @@ class Queue(ABC):
             from saq.queue.postgres import PostgresQueue
 
             return PostgresQueue.from_url(url, **kwargs)
+        elif scheme.startswith("sqlite"):
+            from saq.queue.sqlite import SqliteQueue
+
+            return SqliteQueue.from_url(url, **kwargs)
         elif scheme.startswith("http"):
             from saq.queue.http import HttpQueue
 

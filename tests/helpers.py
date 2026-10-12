@@ -8,6 +8,7 @@ from saq.job import Job, Status
 from saq.queue import Queue
 from saq.queue.postgres import PostgresQueue
 from saq.queue.redis import RedisQueue
+from saq.queue.sqlite import SqliteQueue
 
 POSTGRES_TEST_SCHEMA = "test_saq"
 
@@ -16,6 +17,13 @@ async def create_redis_queue(url="redis://localhost:6379", **kwargs: t.Any) -> R
     queue = t.cast(RedisQueue, Queue.from_url(url, **kwargs))
     await queue.connect()
     await queue.redis.flushdb()
+    return queue
+
+
+async def create_sqlite_queue(path: str, **kwargs: t.Any) -> SqliteQueue:
+    url = "sqlite://" if path == ":memory:" else f"sqlite:///{path}"
+    queue = t.cast(SqliteQueue, Queue.from_url(url, **kwargs))
+    await queue.connect()
     return queue
 
 

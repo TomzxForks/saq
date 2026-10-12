@@ -15,7 +15,7 @@ contribute
 
 ## SAQ (Simple Async Queue) documentation
 
-SAQ (Simple Async Queue) is a simple and performant job queueing framework built on top of asyncio and redis. It can be used for processing background jobs with workers. For example, you could use SAQ to schedule emails, execute long queries, or do expensive data analysis.
+SAQ (Simple Async Queue) is a simple and performant job queueing framework built on top of asyncio and redis, postgres, or sqlite. It can be used for processing background jobs with workers. For example, you could use SAQ to schedule emails, execute long queries, or do expensive data analysis.
 
 It uses [redis-py](https://github.com/redis/redis-py) >= 4.2.
 

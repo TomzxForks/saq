@@ -1,5 +1,5 @@
 # SAQ
-SAQ (Simple Async Queue) is a simple and performant job queueing framework built on top of asyncio and redis or postgres. It can be used for processing background jobs with workers. For example, you could use SAQ to schedule emails, execute long queries, or do expensive data analysis.
+SAQ (Simple Async Queue) is a simple and performant job queueing framework built on top of asyncio and redis, postgres, or sqlite. It can be used for processing background jobs with workers. For example, you could use SAQ to schedule emails, execute long queries, or do expensive data analysis.
 
 [Documentation](https://saq-py.readthedocs.io/)
 
@@ -18,6 +18,9 @@ pip install saq[redis]
 
 # minimal install for postgres
 pip install saq[postgres]
+
+# minimal install for sqlite
+pip install saq[sqlite]
 
 # web + hiredis
 pip install saq[web,hiredis]
